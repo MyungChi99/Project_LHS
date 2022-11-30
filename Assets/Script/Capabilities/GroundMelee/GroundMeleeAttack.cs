@@ -8,8 +8,9 @@ public class GroundMeleeAttack : MonoBehaviour
     private StateMachine _meleeStateMachine;
     private Controller _controller;
 
-    [SerializeField] public Collider2D hitbox;
-    [SerializeField] public GameObject Hiteffect;
+    [SerializeField] public Collider2D Hitbox;
+    //no hit effect yet
+    //[SerializeField] public GameObject Hiteffect;
 
     // Start is called before the first frame update
     void Start()

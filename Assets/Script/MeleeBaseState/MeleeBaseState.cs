@@ -30,8 +30,9 @@ public class MeleeBaseState : State
         base.OnEnter(_stateMachine);
         animator = GetComponent<Animator>();
         _collidersDamaged = new List<Collider2D>();
-        hitCollider = GetComponent<GroundMeleeAttack>().hitbox;
-        _hitEffectPrefab = GetComponent<GroundMeleeAttack>().Hiteffect;
+        hitCollider = GetComponent<GroundMeleeAttack>().Hitbox;
+        //no hit effect yet
+        //_hitEffectPrefab = GetComponent<GroundMeleeAttack>().Hiteffect;
     }
 
     public override void OnUpdate()
@@ -77,7 +78,8 @@ public class MeleeBaseState : State
                 // Only check colliders with a valid Team Componnent attached
                 if (hitTeamComponent && hitTeamComponent.teamIndex == TeamIndex.Enemy)
                 {
-                    GameObject.Instantiate(_hitEffectPrefab, collidersToDamage[i].transform);
+                    //no hit effect yet
+                    //GameObject.Instantiate(_hitEffectPrefab, collidersToDamage[i].transform);
                     Debug.Log("Enemy Has Taken:" + attackIndex + "Damage");
                     _collidersDamaged.Add(collidersToDamage[i]);
                 }
