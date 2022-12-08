@@ -27,7 +27,7 @@ public class MeleeBaseState : State
 
     public override void OnEnter(StateMachine _stateMachine)
     {
-        base.OnEnter(_stateMachine);
+        base.OnEnter(_stateMachine); 
         animator = GetComponent<Animator>();
         _collidersDamaged = new List<Collider2D>();
         hitCollider = GetComponent<GroundMeleeAttack>().Hitbox;

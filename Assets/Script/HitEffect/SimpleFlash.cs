@@ -1,18 +1,43 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleFlash : MonoBehaviour
+namespace BarthaSzabolcs.Tutorial_SpriteFlash
 {
-    // Start is called before the first frame update
-    void Start()
+    public class SimpleFlash : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private Material _flashMaterial;
+        [SerializeField] private float _duration;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private SpriteRenderer _spriteRenderer;
+        private Material _originalMaterial;
+        private Coroutine _flashRoutine;
+
+        private void Start()
+        {
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+            _originalMaterial = _spriteRenderer.material;
+        }
+
+
+        public void Flash()
+        {
+            if (_flashRoutine != null)
+            {
+                StopCoroutine(_flashRoutine);
+            }
+
+            _flashRoutine = StartCoroutine(_FlashRoutine());
+        }
+
+        private IEnumerator _FlashRoutine()
+        {
+            _spriteRenderer.material = _flashMaterial;
+
+            yield return new WaitForSeconds(_duration);
+
+            _spriteRenderer.material = _originalMaterial;
+
+            _flashRoutine = null;
+        }
     }
 }
