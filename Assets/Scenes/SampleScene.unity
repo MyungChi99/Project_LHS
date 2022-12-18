@@ -671,11 +671,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 303508756240937588, guid: 2cfe41e81a059a645955aba20b478a80, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.38
+      value: -7.06
       objectReference: {fileID: 0}
     - target: {fileID: 303508756240937588, guid: 2cfe41e81a059a645955aba20b478a80, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.31
+      value: -2.03
       objectReference: {fileID: 0}
     - target: {fileID: 303508756240937588, guid: 2cfe41e81a059a645955aba20b478a80, type: 3}
       propertyPath: m_LocalPosition.z
@@ -725,6 +725,10 @@ PrefabInstance:
       propertyPath: Hitbox
       value: 
       objectReference: {fileID: 2139970271}
+    - target: {fileID: 6583765633185945069, guid: 2cfe41e81a059a645955aba20b478a80, type: 3}
+      propertyPath: m_TagString
+      value: PlayerHitBox
+      objectReference: {fileID: 0}
     - target: {fileID: 7796210695009534532, guid: 2cfe41e81a059a645955aba20b478a80, type: 3}
       propertyPath: m_Size.x
       value: 0.976655
