@@ -14,6 +14,7 @@ public class Jump : MonoBehaviour
     private Ground _ground;
     private Vector2 _velocity;
     private Dash _dash;
+    private Animator _animator;
     private int _jumpPhase;
     private float _defaultGravityScale, _jumpSpeed, _coyoteCounter, _jumpBufferCounter;
     private bool _desiredJump, _onGround, _isJumping;
@@ -25,6 +26,7 @@ public class Jump : MonoBehaviour
         _controller = GetComponent<Controller>();
         _dash = GetComponent<Dash>();
         _defaultGravityScale = 1f;
+        _animator = GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()
@@ -40,6 +42,7 @@ public class Jump : MonoBehaviour
             _jumpPhase = 0;
             _coyoteCounter = _coyoteTime;
             _isJumping = false;
+            _animator.SetBool("IsJumping",false);
         }
         else
         {
@@ -72,6 +75,7 @@ public class Jump : MonoBehaviour
             _body.gravityScale = _defaultGravityScale;
         }
         _body.velocity = _velocity;
+        _animator.SetFloat("Y_Velocity",_body.velocity.y);
     }
     private void JumpAction()
     {
@@ -85,6 +89,8 @@ public class Jump : MonoBehaviour
             _coyoteCounter = 0;
             _jumpSpeed = Mathf.Sqrt(-2f * Physics2D.gravity.y * _jumpHeight);
             _isJumping = true;
+            _animator.SetBool("IsJumping",true);
+
             
             if (_velocity.y > 0f)
             {

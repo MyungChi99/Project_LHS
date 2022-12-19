@@ -15,11 +15,13 @@ public class Move : MonoBehaviour
     private float _maxSpeedChange, _acceleration;
     public bool _onGround;
     private bool _isFacingRight = true;
+    private Animator _animator;
     private void Awake()
     {
         _body = GetComponent<Rigidbody2D>();
         _ground = GetComponent<Ground>();
         _controller = GetComponent<Controller>();
+        _animator = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -29,6 +31,7 @@ public class Move : MonoBehaviour
         {
 		    CheckDirectionToFace(_direction.x > 0);
         }
+
     }
     private void FixedUpdate()
     {
@@ -38,6 +41,7 @@ public class Move : MonoBehaviour
         _maxSpeedChange = _acceleration * Time.deltaTime;
         _velocity.x = Mathf.MoveTowards(_velocity.x, _desiredVelocity.x, _maxSpeedChange);
         _body.velocity = _velocity;
+        _animator.SetFloat("RunSpeed",Mathf.Abs(_direction.x));
     }
     private void Turn()
     {
