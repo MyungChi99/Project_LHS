@@ -9868,6 +9868,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2079704977}
     m_Modifications:
+    - target: {fileID: 5092630789743373967, guid: e763e73305eef104881875fe74a3bb9b, type: 3}
+      propertyPath: _teamIndex
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7396032000362237051, guid: e763e73305eef104881875fe74a3bb9b, type: 3}
       propertyPath: m_SortingOrder
       value: 10

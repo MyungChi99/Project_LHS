@@ -10,6 +10,7 @@ public class GroundComboState : MeleeBaseState
 
         //Attack
         attackIndex = 2;
+        attackDamage = 1.5f;
         duration = 0.5f;
         animator.SetTrigger("Attack" + attackIndex);
         Debug.Log("Player Attack " + attackIndex + " Fired!");

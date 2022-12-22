@@ -10,6 +10,7 @@ public class GroundEntryState : MeleeBaseState
 
         //Attack
         attackIndex = 1;
+        attackDamage = 1.0f;
         duration = 0.5f;
         animator.SetTrigger("Attack" + attackIndex);
         Debug.Log("Player Attack " + attackIndex + " Fired!");
