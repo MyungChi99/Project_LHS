@@ -12,6 +12,7 @@ public class MeleeBaseState : State
     protected bool shouldCombo;
     // The attack index in the sequence of attacks
     protected int attackIndex;
+    protected float attackDamage;
 
 
 
