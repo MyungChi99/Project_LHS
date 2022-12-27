@@ -28,7 +28,7 @@ public class GroundComboState : MeleeBaseState
             }
             else
             {
-                stateMachine.SetNextStateToMain();
+                stateMachine.SetNextState(new IdleState());
             }
         }
     }

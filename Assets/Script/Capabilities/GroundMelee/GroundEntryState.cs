@@ -28,7 +28,7 @@ public class GroundEntryState : MeleeBaseState
             }
             else
             {
-                stateMachine.SetNextStateToMain();
+                stateMachine.SetNextState(new IdleState());
             }
         }
     }
