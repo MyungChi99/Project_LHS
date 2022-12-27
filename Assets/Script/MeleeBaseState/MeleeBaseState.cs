@@ -22,6 +22,8 @@ public class MeleeBaseState : State
     private List<Collider2D> _collidersDamaged;
     // The Hit Effect to Spawn on the afflicted Enemy
     private GameObject _hitEffectPrefab;
+    private Controller _controller;
+
 
     // Input buffer Timer
     private float _attackPressedTimer = 0;
@@ -32,6 +34,7 @@ public class MeleeBaseState : State
         animator = GetComponent<Animator>();
         _collidersDamaged = new List<Collider2D>();
         hitCollider = GetComponent<GroundMeleeAttack>().Hitbox;
+        _controller = GetComponent<Controller>();
         //no hit effect yet
         //_hitEffectPrefab = GetComponent<GroundMeleeAttack>().Hiteffect;
     }
@@ -47,7 +50,7 @@ public class MeleeBaseState : State
         }
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (_controller.input.RetrieveAttackInput())
         {
             _attackPressedTimer = 2;
         }

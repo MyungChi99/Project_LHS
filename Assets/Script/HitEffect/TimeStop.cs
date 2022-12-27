@@ -43,7 +43,7 @@ public class TimeStop : MonoBehaviour
         {
             _restoreTime = true;
         }
-
+     
         Time.timeScale = ChangeTime;
     }
 

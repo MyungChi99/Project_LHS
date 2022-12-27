@@ -17,6 +17,6 @@ public class PlayerController : InputController
     }
     public override bool RetrieveAttackInput() 
     {   
-        return Input.GetMouseButton(0);
+        return Input.GetMouseButtonDown(0);
     }
 }

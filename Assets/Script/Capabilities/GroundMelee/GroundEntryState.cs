@@ -11,7 +11,7 @@ public class GroundEntryState : MeleeBaseState
         //Attack
         attackIndex = 1;
         attackDamage = 1.0f;
-        duration = 0.5f;
+        duration = 0.3f;
         animator.SetTrigger("Attack" + attackIndex);
         Debug.Log("Player Attack " + attackIndex + " Fired!");
     }
@@ -19,7 +19,7 @@ public class GroundEntryState : MeleeBaseState
     public override void OnUpdate()
     {
         base.OnUpdate();
-
+ 
         if (fixedtime >= duration)
         {
             if (shouldCombo)
@@ -28,7 +28,7 @@ public class GroundEntryState : MeleeBaseState
             }
             else
             {
-                stateMachine.SetNextState(new IdleState());
+                stateMachine.SetNextStateToMain();
             }
         }
     }
