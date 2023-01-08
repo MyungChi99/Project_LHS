@@ -52,7 +52,7 @@ public class MeleeBaseState : State
 
         if (_controller.input.RetrieveAttackInput())
         {
-            _attackPressedTimer = 2;
+            _attackPressedTimer = 2.0f;
         }
 
         if (animator.GetFloat("AttackWindow.Open") > 0f && _attackPressedTimer > 0)
