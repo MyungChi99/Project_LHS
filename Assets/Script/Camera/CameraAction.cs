@@ -21,10 +21,12 @@ public class Camera : MonoBehaviour
     public float idlecamera_xaixs_bias;
     public float idlecamera_zaixs_bias;
     private Vector3 _playerLocaiton;
-    
+    private bool _isWallJumping;
+    // 아직 구현안한 기능이지만 구현할예정(메트로베니아 게임 필수임 ㅋ)
+
     private Rigidbody2D _body;
     private Vector2 _velocity;
-    private float _yaxis_LerpDegree, _xaixs_LerpDegree;
+    private float _yaxis_LerpDegree, _xaxis_LerpDegree;
 
     private void Start()
     {
@@ -48,7 +50,7 @@ public class Camera : MonoBehaviour
     //     Vector3 Camera_Location =new Vector3(x,y,z);
     //     transform.position = Camera_Location;
     // } 
-    private void VerticalMovement()
+    private float VerticalMovement()
     {
         //high Lerp (Instance following camera)
         if(_velocity.y <-1.0f && _camera.ReturnCameraPosition().y-TargetWithoutClamp().y > 0 && _camera.ReturnCameraPosition().y-TargetLocation().y >0)
@@ -59,12 +61,31 @@ public class Camera : MonoBehaviour
         {
             _yaxis_LerpDegree = 3.5f;
         }
-
+        return (Mathf.Lerp(_camera.ReturnCameraPosition().y,TargetLocation().y,Time.deltaTime*_yaxis_LerpDegree));
     }  
 
-    private void HorizontalMovement()
+    private float HorizontalMovement()
     {
- 
+        if((Mathf.Abs(_camera.ReturnCameraPosition().x-TargetLocation().y)) > _distanceFromCharacter/3 )
+        {
+            _xaxis_LerpDegree = Mathf.Abs(_distanceFromCharacter/(_camera.ReturnCameraPosition().x-TargetLocation().x));
+        }
+        else
+        {
+            if(Mathf.Abs(_velocity.x)<=0.5f && !_isWallJumping)
+            {
+                _xaxis_LerpDegree = 1.5f;
+            }
+            else if(Mathf.Abs(_velocity.x)>0.5f && !_isWallJumping)
+            {
+                _xaxis_LerpDegree = 4.0f;
+            }
+            else if(_isWallJumping)
+            {
+                _xaxis_LerpDegree = 1.0f;
+            }
+        }
+        return (Mathf.Lerp(_camera.ReturnCameraPosition().x,TargetLocation().x,Time.deltaTime*_xaxis_LerpDegree));
     }
 
     private Vector3 TargetWithoutClamp()
