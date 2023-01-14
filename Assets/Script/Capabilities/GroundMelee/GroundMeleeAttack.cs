@@ -8,6 +8,8 @@ public class GroundMeleeAttack : MonoBehaviour
     private StateMachine _meleeStateMachine;
     private Controller _controller;
 
+    private float _duration = 0.5f;
+
     [SerializeField] public Collider2D Hitbox;
     //no hit effect yet
     //[SerializeField] public GameObject Hiteffect;
@@ -22,9 +24,11 @@ public class GroundMeleeAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_controller.input.RetrieveAttackInput() && _meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState))
+        _duration -= Time.deltaTime;
+        if (_controller.input.RetrieveAttackInput() && _meleeStateMachine.CurrentState.GetType() == typeof(IdleCombatState) && _duration <= 0)
         {
             _meleeStateMachine.SetNextState(new GroundEntryState());
+            _duration = 0.5f;
         }
     }
 }
