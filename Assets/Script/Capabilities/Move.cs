@@ -14,7 +14,7 @@ public class Move : MonoBehaviour
     private Ground _ground;
     private float _maxSpeedChange, _acceleration;
     public bool _onGround;
-    private bool _isFacingRight = true;
+    public bool isFacingRight = false;
     private Animator _animator;
     private void Awake()
     {
@@ -49,11 +49,11 @@ public class Move : MonoBehaviour
         scale.x *= -1;
         transform.localScale = scale;
 
-        _isFacingRight = !_isFacingRight;
+        isFacingRight = !isFacingRight;
     }
     private void CheckDirectionToFace(bool isMovingRight)
     {
-        if(isMovingRight != _isFacingRight)
+        if(isMovingRight != isFacingRight)
             Turn();
     }
 }

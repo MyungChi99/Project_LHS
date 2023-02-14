@@ -19,4 +19,9 @@ public class PlayerController : InputController
     {   
         return Input.GetMouseButtonDown(0);
     }
+
+    public override bool RetrieveDashInput()
+    {
+        return Input.GetKey(KeyCode.LeftShift);
+    }
 }

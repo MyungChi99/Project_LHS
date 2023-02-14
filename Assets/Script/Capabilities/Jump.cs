@@ -13,7 +13,6 @@ public class Jump : MonoBehaviour
     private Rigidbody2D _body;
     private Ground _ground;
     private Vector2 _velocity;
-    private Dash _dash;
     private Animator _animator;
     private int _jumpPhase;
     private float _defaultGravityScale, _jumpSpeed, _coyoteCounter, _jumpBufferCounter;
@@ -24,7 +23,6 @@ public class Jump : MonoBehaviour
         _body = GetComponent<Rigidbody2D>();
         _ground = GetComponent<Ground>();
         _controller = GetComponent<Controller>();
-        _dash = GetComponent<Dash>();
         _defaultGravityScale = 1f;
         _animator = GetComponent<Animator>();
     }
