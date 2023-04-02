@@ -21,7 +21,7 @@ public class MeleeBaseState : State
     // Cached already struck objects of said attack to avoid overlapping attacks on same target
     private List<Collider2D> _collidersDamaged;
     // The Hit Effect to Spawn on the afflicted Enemy
-    private GameObject _hitEffectPrefab;
+    protected GameObject _hitEffectPrefab;
     private Controller _controller;
 
 
@@ -36,7 +36,7 @@ public class MeleeBaseState : State
         hitCollider = GetComponent<GroundMeleeAttack>().Hitbox;
         _controller = GetComponent<Controller>();
         //no hit effect yet
-        //_hitEffectPrefab = GetComponent<GroundMeleeAttack>().Hiteffect;
+        _hitEffectPrefab = GetComponent<GroundMeleeAttack>().Hiteffect;
     }
 
     public override void OnUpdate()
@@ -82,13 +82,16 @@ public class MeleeBaseState : State
                 // Only check colliders with a valid Team Componnent attached
                 if (hitTeamComponent && hitTeamComponent.teamIndex == TeamIndex.Enemy)
                 {
-                    //no hit effect yet
                     //GameObject.Instantiate(_hitEffectPrefab, collidersToDamage[i].transform);
                     Debug.Log("Enemy Has Taken:" + attackIndex + "Damage");
                     _collidersDamaged.Add(collidersToDamage[i]);
                 }
             }
         }
+    }
+    public void DestroyHitEffect(GameObject hitEffect)
+    {
+        Destroy(hitEffect);
     }
 
 }

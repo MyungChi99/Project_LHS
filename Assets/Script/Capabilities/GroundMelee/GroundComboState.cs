@@ -32,4 +32,8 @@ public class GroundComboState : MeleeBaseState
             }
         }
     }
+    public void DestroyHitEffect()
+    {
+        Destroy(_hitEffectPrefab);
+    }
 }

@@ -24,6 +24,7 @@ public class GroundEntryState : MeleeBaseState
         {
             if (shouldCombo)
             {
+                GameObject.Instantiate(_hitEffectPrefab,hitCollider.transform.position, Quaternion.identity);
                 stateMachine.SetNextState(new GroundComboState());
             }
             else

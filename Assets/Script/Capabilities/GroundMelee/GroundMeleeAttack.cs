@@ -12,7 +12,7 @@ public class GroundMeleeAttack : MonoBehaviour
 
     [SerializeField] public Collider2D Hitbox;
     //no hit effect yet
-    //[SerializeField] public GameObject Hiteffect;
+    [SerializeField] public GameObject Hiteffect;
 
     // Start is called before the first frame update
     void Start()
