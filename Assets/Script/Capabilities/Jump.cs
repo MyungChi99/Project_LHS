@@ -34,6 +34,7 @@ public class Jump : MonoBehaviour
     private void FixedUpdate()
     {
         _onGround = _ground.OnGround;
+        _animator.SetBool("OnGround",_onGround);
         _velocity = _body.velocity;
         if (_onGround && _body.velocity.y == 0)
         {
