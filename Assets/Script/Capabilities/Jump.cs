@@ -17,6 +17,7 @@ public class Jump : MonoBehaviour
     private int _jumpPhase;
     private float _defaultGravityScale, _jumpSpeed, _coyoteCounter, _jumpBufferCounter;
     private bool _desiredJump, _onGround, _isJumping;
+    private float _fallSpeedYDampingChangeThreshold;
     // Start is called before the first frame update
     void Awake()
     {
@@ -25,11 +26,28 @@ public class Jump : MonoBehaviour
         _controller = GetComponent<Controller>();
         _defaultGravityScale = 1f;
         _animator = GetComponent<Animator>();
+
+        _fallSpeedYDampingChangeThreshold = CameraManager.instance._fallSpeedYDampingChangeThreshold;
     }
     // Update is called once per frame
     void Update()
     {
         _desiredJump |= _controller.input.RetrieveJumpInput();
+
+        //if we are falling past a certain speed threshold
+        if(_body.velocity.y < _fallSpeedYDampingChangeThreshold && !CameraManager.instance.IsLerpingYDamping && !CameraManager.instance.LerpedFromPlayerFalling)
+        {
+            CameraManager.instance.LerpYDamping(true);
+        }
+
+        //if we are standing still or moving up
+        if(_body.velocity.y >=0f && !CameraManager.instance.IsLerpingYDamping && CameraManager.instance.LerpedFromPlayerFalling)
+        {
+            //reset so it can be called again
+            CameraManager.instance.LerpedFromPlayerFalling = false;
+
+            CameraManager.instance.LerpYDamping(false);
+        }
     }
     private void FixedUpdate()
     {
