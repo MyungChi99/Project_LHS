@@ -11,7 +11,7 @@ public class CameraManager : MonoBehaviour
     [Header("Controls for lerping the Y Damping during player jump/fall")]
     [SerializeField] private float _fallPanAmount = 0.25f;
     [SerializeField] private float _fallYPanTime = 0.35f;
-    public float _fallSpeedYDampingChangeThreshold = -15f;
+    public float fallSpeedYDampingChangeThreshold = -15f;
     public bool IsLerpingYDamping {get; private set;}
     public bool LerpedFromPlayerFalling {get; set;}
 
