@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Controller))]
 public class Jump : MonoBehaviour
 {
+    [Header("Particle")]
+    public ParticleSystem dust;
     [SerializeField, Range(0f, 10f)] private float _jumpHeight = 3f;
     [SerializeField, Range(0, 5)] private int _maxAirJumps = 0;
     [SerializeField, Range(0f, 5f)] private float _downwardMovementMultiplier = 3f;
@@ -27,28 +29,29 @@ public class Jump : MonoBehaviour
         _controller = GetComponent<Controller>();
         _defaultGravityScale = 1f;
         _animator = GetComponent<Animator>();
+        Debug.Log(_fallSpeedYDampingChangeThreshold);
         
-        //_fallSpeedYDampingChangeThreshold = CameraManager.instance.fallSpeedYDampingChangeThreshold;
+        _fallSpeedYDampingChangeThreshold = CameraManager.instance.fallSpeedYDampingChangeThreshold;
     }
     // Update is called once per frame
     void Update()
     {
         _desiredJump |= _controller.input.RetrieveJumpInput();
 
-        // //if we are falling past a certain speed threshold
-        // if(_body.velocity.y < _fallSpeedYDampingChangeThreshold && !CameraManager.instance.IsLerpingYDamping && !CameraManager.instance.LerpedFromPlayerFalling)
-        // {
-        //     CameraManager.instance.LerpYDamping(true);
-        // }
+        //if we are falling past a certain speed threshold
+        if(_body.velocity.y < _fallSpeedYDampingChangeThreshold && !CameraManager.instance.IsLerpingYDamping && !CameraManager.instance.LerpedFromPlayerFalling)
+        {
+            CameraManager.instance.LerpYDamping(true);
+        }
 
-        // //if we are standing still or moving up
-        // if(_body.velocity.y >=0f && !CameraManager.instance.IsLerpingYDamping && CameraManager.instance.LerpedFromPlayerFalling)
-        // {
-        //     //reset so it can be called again
-        //     CameraManager.instance.LerpedFromPlayerFalling = false;
+        //if we are standing still or moving up
+        if(_body.velocity.y >=0f && !CameraManager.instance.IsLerpingYDamping && CameraManager.instance.LerpedFromPlayerFalling)
+        {
+            //reset so it can be called again
+            CameraManager.instance.LerpedFromPlayerFalling = false;
 
-        //     CameraManager.instance.LerpYDamping(false);
-        // }
+            CameraManager.instance.LerpYDamping(false);
+        }
     }
     private void FixedUpdate()
     {
@@ -97,6 +100,7 @@ public class Jump : MonoBehaviour
     }
     private void JumpAction()
     {
+        dust.Play();
         if (_coyoteCounter >0f || (_jumpPhase < _maxAirJumps && _isJumping))
         {
             if(_isJumping)

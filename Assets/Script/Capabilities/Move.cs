@@ -8,6 +8,9 @@ public class Move : MonoBehaviour
     [SerializeField, Range(0f, 100f)] private float _maxSpeed = 4f;
     [SerializeField, Range(0f, 100f)] private float _maxAcceleration = 35f;
     [SerializeField, Range(0f, 100f)] private float _maxAirAcceleration = 20f;
+    [Header("Particle")]
+    public ParticleSystem dust;
+    
     [Header("Camera Stuff")]
     [SerializeField] private GameObject _cameraFollowGO;
     private Controller _controller;
@@ -49,6 +52,7 @@ public class Move : MonoBehaviour
     }
     private void Turn()
     {
+        dust.Play();
         if(isFacingRight)
         {
             Vector3 rotator = new Vector3(transform.rotation.x,0f,transform.rotation.z);
