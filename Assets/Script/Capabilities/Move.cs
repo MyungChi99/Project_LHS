@@ -52,7 +52,7 @@ public class Move : MonoBehaviour
     }
     private void Turn()
     {
-        //dust.Play();
+        dust.Play();
         if(isFacingRight)
         {
             Vector3 rotator = new Vector3(transform.rotation.x,0f,transform.rotation.z);
