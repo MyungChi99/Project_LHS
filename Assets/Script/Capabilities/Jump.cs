@@ -100,7 +100,7 @@ public class Jump : MonoBehaviour
     }
     private void JumpAction()
     {
-        //dust.Play();
+        dust.Play();
         if (_coyoteCounter >0f || (_jumpPhase < _maxAirJumps && _isJumping))
         {
             if(_isJumping)
