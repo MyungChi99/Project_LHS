@@ -19,7 +19,7 @@
 - **Story**  
    https://miro.com/app/board/uXjVPPJUQsE=/
 - **세계관 및 기획 컨셉**  
-  - 
+  - 인류 멸망 이후 신소재(기억의 모래)
   - 주요 상호작용(엘리베이터, 환경 오브젝트)  
   - 게임의 톤앤매너 (예: 어두운 분위기의 SF, 감성적 픽셀 아트 등)
 
@@ -66,20 +66,29 @@
 ---
 
 ## ⚙️ 구현 기능
-- **Player Movement**  
-  - 기본 이동 (WASD, 점프)  
-  - 카메라 추적 및 시야 전환  
-- **Elevator Event Interaction**  
-  - 플레이어 접근 시 이벤트 발생  
-  - 상호작용 키 입력에 따른 상태 변화  
-- **기타 코드 실험**  
-  - 카메라 전환 로직  
-  - 레벨 이동 기초 구현  
+- **Player Movement**
+    - 기본 이동(WASD, 점프)
+    - **기술적 고민:** `Vector3.Lerp`를 활용한 부드러운 카메라 추적 및 시야 전환 구현. 플레이어의 빠른 이동에 따른 카메라 지연 문제를 해결하기 위해 smoothSpeed 변수 최적화 및 `LateUpdate()` 활용.
 
-코드 예시:  
-```csharp
-// Camera follow logic (간단 발췌 예시)
-void LateUpdate() {
-    Vector3 targetPosition = player.position + offset;
-    transform.position = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
-}
+- **Elevator Event Interaction**
+    - `OnTriggerEnter`를 활용해 플레이어 접근 감지
+    - 상호작용 키 입력(E키)에 따른 엘리베이터 상태 변화(상승/하강)
+    - **기술적 고민:** `IInteractive`라는 **인터페이스(Interface)**를 설계하여 엘리베이터 외 다른 상호작용 오브젝트에도 동일한 로직을 적용할 수 있도록 확장성을 고려함.
+
+- **기타 코드 실험**
+    - 카메라 전환 로직
+    - 레벨 이동 기초 구현
+---
+
+## 🧑‍💻 프로젝트 회고
+### 얻은 경험
+- **버전 관리:** Git을 활용한 개인 프로젝트 버전 관리 및 커밋 메시지 작성 습관 형성
+  
+- **설계 능력:** 추후 확장성을 고려한 인터페이스 및 추상 클래스 설계의 중요성을 깨달음.
+- **성능 최적화:** `Profiler`를 활용하여 `Physics` 및 `Garbage Collection`으로 인한 성능 저하를 분석하는 경험을 함.
+
+### 아쉬운 점 및 개선 방향
+- **코드 효율성:** `Coroutine`으로 작성된 일부 이벤트 로직을 `Async/Await`를 활용하여 더 효율적이고 가독성 높은 비동기 로직으로 개선하고 싶음.
+- **최신 기술 적용:** 유니티의 새로운 `Input System` 패키지를 도입하여 더 유연하고 확장 가능한 입력 시스템을 구현하고 싶음.
+
+---
