@@ -26,11 +26,33 @@
 ---
 
 ## 🖼️ 컨셉 아트
-| 씬/캐릭터 | 이미지 |
-|-----------|--------|
-| 주인공 컨셉 | ![](./docs/art/player.png) |
-| 배경 컨셉 | ![](./docs/art/background.png) |
-| 엘리베이터 씬 | ![](./docs/art/elevator.png) |
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8f4712b9-e7c0-4a4d-b387-d4130c74d481" width="30%" />
+  <img src="https://github.com/user-attachments/assets/99f5b595-5179-4492-82f0-19722886edd6" width="30%" />
+  <img src="https://github.com/user-attachments/assets/755b30d8-2aab-4e17-bdfc-e4dfb7288fe7" width="30%" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0412789c-eff8-40cb-a126-9ce1646483b5" width="30%" />
+  <img src="https://github.com/user-attachments/assets/d804a759-8db4-462f-ae3a-c09e5a87e142" width="30%" />
+  <img src="https://github.com/user-attachments/assets/7682b76a-0dc3-44ef-b8c1-06320220013f" width="30%" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/af8be3ff-b147-409e-abda-4d1669a79838" width="30%" />
+  <img src="https://github.com/user-attachments/assets/1bdc1171-70a3-4672-a131-bd8ee5514384" width="30%" />
+  <img src="https://github.com/user-attachments/assets/03752080-5fa3-437d-a5f2-8a3551494414" width="30%" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4b7825e6-5407-46d2-a8f4-16f362826344" width="30%" />
+  <img src="https://github.com/user-attachments/assets/58a84e00-f7ea-49ec-987a-43665e0247a2" width="30%" />
+  <img src="https://github.com/user-attachments/assets/7c7e2a34-8d60-4871-8d94-d87cde748cec" width="30%" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/370dda27-bcf2-43e7-b65d-beada4084fb5" width="30%" />
+</p>
 
 ---
 
