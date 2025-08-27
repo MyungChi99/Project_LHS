@@ -1,6 +1,6 @@
 # 🎮 [Project LHS]
--**dev/Concept: Chang Hanhae
--**Art/Concept: Tarphis
+- **dev/Concept: Chang Hanhae
+- **Art/Concept: Tarphis
 > **2D Platformer/Metroidvania**  
 > This project was intended to be a concept game which the main gimmick is interaction with lights.
 > Currently Abandoned Project yet sharing the experiences.
