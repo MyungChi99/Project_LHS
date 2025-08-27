@@ -1,5 +1,6 @@
 # 🎮 [Project LHS]
-
+dev/Concept: Chang Hanhae
+Art/Concept: Tarphis
 > **2D Platformer/Metroidvania**  
 > This project was intended to be a concept game which the main gimmick is interaction with lights.
 > Currently Abandoned Project yet sharing the experiences.
@@ -83,7 +84,7 @@
 ## 🧑‍💻 프로젝트 회고
 ### 얻은 경험
 - **버전 관리:** Git을 활용한 개인 프로젝트 버전 관리 및 커밋 메시지 작성 습관 형성
-  
+  <img width="472" height="506" alt="Image" src="https://github.com/user-attachments/assets/c2b553d3-3618-4c11-a033-109964ae354e" />
 - **설계 능력:** 추후 확장성을 고려한 인터페이스 및 추상 클래스 설계의 중요성을 깨달음.
 - **성능 최적화:** `Profiler`를 활용하여 `Physics` 및 `Garbage Collection`으로 인한 성능 저하를 분석하는 경험을 함.
 
