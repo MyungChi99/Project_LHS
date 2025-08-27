@@ -17,7 +17,7 @@
 
 ## 📖 Story & Concept
 - **Story**  
-   https://miro.com/app/board/uXjVPPJUQsE=/(
+   https://miro.com/app/board/uXjVPPJUQsE=/
 - **세계관 및 기획 컨셉**  
   - 
   - 주요 상호작용(엘리베이터, 환경 오브젝트)  
