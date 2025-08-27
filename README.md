@@ -87,7 +87,7 @@
 - **버전 관리:** Git을 활용한 개인 프로젝트 버전 관리 및 커밋 메시지 작성 습관을 형성했습니다. 아래와 같은 Git-flow 전략을 기반으로 브랜치를 관리하며 협업과 기능 개발의 효율성을 높였습니다.
 
   <p align="center">
-    <img width="500" alt="Git Branch Strategy" src="https://github.com/user-attachments/assets/c2b553d3-3618-4c11-a033-109964ae354e" />
+    <img width="250" alt="Git Branch Strategy" src="https://github.com/user-attachments/assets/c2b553d3-3618-4c11-a033-109964ae354e" />
     <br>
     <em>Project LHS의 Git 브랜치 전략 도식화</em>
   </p>
